@@ -52,7 +52,6 @@ In this project, you are going to learn about ruby classes!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
 <!-- GETTING STARTED -->
 
 # Getting Started

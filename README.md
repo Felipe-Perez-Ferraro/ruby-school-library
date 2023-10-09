@@ -142,17 +142,13 @@ Feel free to check the [issues page](https://github.com/Felipe-Perez-Ferraro/rub
 
 ## ⭐️ Show your support <a name="support"></a>
 
-> I encourage you to support this project
-
-If you like this project!
+If you like this project please share it!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- ACKNOWLEDGEMENTS -->
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
-
-👤 **Original Design 1**
 
 - I would like to thank microverse student team for the resources availed.
 

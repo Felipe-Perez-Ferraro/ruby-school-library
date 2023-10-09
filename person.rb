@@ -10,8 +10,10 @@ class Person
   end
 
   def can_use_services?
-    puts @parent_permission || of_age?
+    @parent_permission || of_age?
   end
+
+  private
 
   def of_age?
     @age >= 18

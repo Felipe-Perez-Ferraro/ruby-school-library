@@ -15,37 +15,42 @@ class App
     @rentals = []
   end
 
+  def display_menu
+    puts '1 - List all books.'
+    puts '2 - List all people.'
+    puts '3 - Create a person.'
+    puts '4 - Create a book.'
+    puts '5 - Create a rental.'
+    puts '6 - List all rentals for a given person id.'
+    puts '7 - Exit'
+  end
+
+  def process_option(option)
+    case option
+    when '1'
+      list_books('list')
+    when '2'
+      list_people('list')
+    when '3'
+      create_person
+    when '4'
+      create_book
+    when '5'
+      rental
+    when '6'
+      list_rentals
+    else
+      quit_choose(option)
+    end
+  end
+
   def main
     puts 'Welcome to School Library!'
     puts
     loop do
-      puts '1 - List all books.'
-      puts '2 - List all people.'
-      puts '3 - Create a person.'
-      puts '4 - Create a book.'
-      puts '5 - Create a rental.'
-      puts '6 - List all rentals for a given person id.'
-      puts '7 - Exit'
+      display_menu
       choice = gets.chomp
-
-      case choice
-      when '1'
-        list_books('list')
-      when '2'
-        list_people('list')
-      when '3'
-        create_person
-      when '4'
-        create_book
-      when '5'
-        rental
-      when '6'
-        list_rentals
-      when '7'
-        quit_choose(choice)
-      else
-        puts 'Invalid option. Please choose a valid option.'
-      end
+      process_option(choice)
     end
   end
 

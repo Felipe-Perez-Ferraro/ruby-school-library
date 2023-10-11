@@ -53,10 +53,10 @@ class App
   end
 
   def quit_choose(choice)
-    unless choice == 7
-      puts 'Thank you for using this app!'
-      exit
-    end
+    return if choice == 7
+
+    puts 'Thank you for using this app!'
+    exit
   end
 
   def list_books(list)
@@ -70,11 +70,11 @@ class App
       end
     end
     return unless list != 'rental'
-    
+
     puts
     selections
   end
-  
+
   def list_people(list)
     if @people.empty?
       puts 'There is no people!'
@@ -101,7 +101,7 @@ class App
 
     if input == 1
       create_student(name, age)
-    else 
+    else
       create_teacher(name, age)
     end
   end
@@ -160,7 +160,7 @@ class App
     person = @people[person_idx]
     rental = Rental.new(date, book, person)
     @rentals.push(rental)
-    @rentals.each { |rental| puts rental.person.id }
+    @rentals.each { |rent| puts rent.person.id }
   end
 
   def list_rentals

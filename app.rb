@@ -15,40 +15,37 @@ class App
     @rentals = []
   end
 
-  def run
+  def main
     puts 'Welcome to School Library!'
     puts
-    selections
-  end
+    loop do
+      puts '1 - List all books.'
+      puts '2 - List all people.'
+      puts '3 - Create a person.'
+      puts '4 - Create a book.'
+      puts '5 - Create a rental.'
+      puts '6 - List all rentals for a given person id.'
+      puts '7 - Exit'
+      choice = gets.chomp
 
-  def selections
-    puts '1 - List all books.'
-    puts '2 - List all people.'
-    puts '3 - Create a person.'
-    puts '4 - Create a book.'
-    puts '5 - Create a rental.'
-    puts '6 - List all rentals for a given person id.'
-    puts '7 - Exit'
-    options
-  end
-
-  def options
-    choice = gets.chomp
-    case choice
-    when '1'
-      list_books('list')
-    when '2'
-      list_people('list')
-    when '3'
-      create_person
-    when '4'
-      create_book
-    when '5'
-      rental
-    when '6'
-      list_rentals
-    else
-      quit_choose(choice)
+      case choice
+      when '1'
+        list_books('list')
+      when '2'
+        list_people('list')
+      when '3'
+        create_person
+      when '4'
+        create_book
+      when '5'
+        rental
+      when '6'
+        list_rentals
+      when '7'
+        quit_choose(choice)
+      else
+        puts 'Invalid option. Please choose a valid option.'
+      end
     end
   end
 
@@ -63,7 +60,7 @@ class App
     if @books.empty?
       puts 'There is no books!'
       puts
-      selections
+      main
     else
       @books.map.with_index do |book, idx|
         puts "#{idx}) Title: #{book.title}, Author: #{book.author}"
@@ -72,14 +69,14 @@ class App
     return unless list != 'rental'
 
     puts
-    selections
+    main
   end
 
   def list_people(list)
     if @people.empty?
       puts 'There is no people!'
       puts
-      selections
+      main
     else
       @people.map.with_index do |person, idx|
         puts "#{idx}) [#{person.class.name}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
@@ -88,7 +85,7 @@ class App
     return unless list != 'rental'
 
     puts
-    selections
+    main
   end
 
   def create_person
@@ -115,7 +112,7 @@ class App
     @people.push(student)
     puts 'Person created succesfully'
     puts
-    selections
+    main
   end
 
   def create_teacher(name, age)
@@ -125,7 +122,7 @@ class App
     @people.push(teacher)
     puts 'Person created succesfully'
     puts
-    selections
+    main
   end
 
   def create_book
@@ -137,7 +134,7 @@ class App
     @books.push(book)
     puts 'Book created succesfully'
     puts
-    selections
+    main
   end
 
   def rental
@@ -152,7 +149,7 @@ class App
     create_rental(date, book_idx, person_idx)
     puts 'Rental created successfully'
     puts
-    selections
+    main
   end
 
   def create_rental(date, book_idx, person_idx)
@@ -172,6 +169,6 @@ class App
       puts "Date: #{item.date}, Book: \"#{item.book.title}\" by #{item.book.author}"
     end
     puts
-    selections
+    main
   end
 end
